@@ -22,21 +22,25 @@
         return YES;
     }
 }
-//
-//-(BOOL)canBecomeFirstResponder {
-//    return YES;
-//}
-//
-//-(void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    [self becomeFirstResponder];
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [self resignFirstResponder];
-//    [super viewWillDisappear:animated];
-//}
+
+-(BOOL)canBecomeFirstResponder {
+    NSLog(@"First responder asked");
+    return YES;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    NSLog(@"View Did Appear");
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
 - (void) playSound {
+    NSLog(@"Play sound");
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate playSound];
 }
