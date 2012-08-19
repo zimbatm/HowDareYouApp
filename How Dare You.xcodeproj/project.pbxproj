@@ -21,6 +21,18 @@
 		8D264B8F15DAD48500C04EBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D264B6D15DAD48500C04EBD /* Foundation.framework */; };
 		8D264B9715DAD48500C04EBD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D264B9515DAD48500C04EBD /* InfoPlist.strings */; };
 		8D264B9A15DAD48500C04EBD /* How_Dare_YouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D264B9915DAD48500C04EBD /* How_Dare_YouTests.m */; };
+		8D264BB115DAD59E00C04EBD /* Angry.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BA515DAD59E00C04EBD /* Angry.png */; };
+		8D264BB215DAD59E00C04EBD /* Angry2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BA615DAD59E00C04EBD /* Angry2.jpg */; };
+		8D264BB315DAD59E00C04EBD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BA715DAD59E00C04EBD /* Default.png */; };
+		8D264BB415DAD59E00C04EBD /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BA815DAD59E00C04EBD /* Icon-72.png */; };
+		8D264BB515DAD59E00C04EBD /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BA915DAD59E00C04EBD /* Icon-Small-50.png */; };
+		8D264BB615DAD59E00C04EBD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BAA15DAD59E00C04EBD /* Icon-Small.png */; };
+		8D264BB715DAD59E00C04EBD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BAB15DAD59E00C04EBD /* Icon-Small@2x.png */; };
+		8D264BB815DAD59E00C04EBD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BAC15DAD59E00C04EBD /* Icon.png */; };
+		8D264BB915DAD59E00C04EBD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BAD15DAD59E00C04EBD /* Icon@2x.png */; };
+		8D264BBA15DAD59E00C04EBD /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BAE15DAD59E00C04EBD /* iTunesArtwork */; };
+		8D264BBB15DAD59E00C04EBD /* how-dare-you.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8D264BB015DAD59E00C04EBD /* how-dare-you.aif */; };
+		8D264BC915E1841800C04EBD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D264BC815E1841800C04EBD /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +66,18 @@
 		8D264B9615DAD48500C04EBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8D264B9815DAD48500C04EBD /* How_Dare_YouTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = How_Dare_YouTests.h; sourceTree = "<group>"; };
 		8D264B9915DAD48500C04EBD /* How_Dare_YouTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = How_Dare_YouTests.m; sourceTree = "<group>"; };
+		8D264BA515DAD59E00C04EBD /* Angry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Angry.png; sourceTree = "<group>"; };
+		8D264BA615DAD59E00C04EBD /* Angry2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Angry2.jpg; sourceTree = "<group>"; };
+		8D264BA715DAD59E00C04EBD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8D264BA815DAD59E00C04EBD /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		8D264BA915DAD59E00C04EBD /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		8D264BAA15DAD59E00C04EBD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		8D264BAB15DAD59E00C04EBD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		8D264BAC15DAD59E00C04EBD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		8D264BAD15DAD59E00C04EBD /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		8D264BAE15DAD59E00C04EBD /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		8D264BB015DAD59E00C04EBD /* how-dare-you.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = "how-dare-you.aif"; sourceTree = "<group>"; };
+		8D264BC815E1841800C04EBD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +88,7 @@
 				8D264B6C15DAD48500C04EBD /* UIKit.framework in Frameworks */,
 				8D264B6E15DAD48500C04EBD /* Foundation.framework in Frameworks */,
 				8D264B7015DAD48500C04EBD /* CoreGraphics.framework in Frameworks */,
+				8D264BC915E1841800C04EBD /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +127,7 @@
 		8D264B6A15DAD48500C04EBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D264BC815E1841800C04EBD /* AudioToolbox.framework */,
 				8D264B6B15DAD48500C04EBD /* UIKit.framework */,
 				8D264B6D15DAD48500C04EBD /* Foundation.framework */,
 				8D264B6F15DAD48500C04EBD /* CoreGraphics.framework */,
@@ -119,6 +145,7 @@
 				8D264B8015DAD48500C04EBD /* MainStoryboard_iPad.storyboard */,
 				8D264B8315DAD48500C04EBD /* ViewController.h */,
 				8D264B8415DAD48500C04EBD /* ViewController.m */,
+				8D264BA315DAD59E00C04EBD /* Resources */,
 				8D264B7215DAD48500C04EBD /* Supporting Files */,
 			);
 			path = "How Dare You";
@@ -152,6 +179,40 @@
 				8D264B9515DAD48500C04EBD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D264BA315DAD59E00C04EBD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D264BA415DAD59E00C04EBD /* images */,
+				8D264BAF15DAD59E00C04EBD /* sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8D264BA415DAD59E00C04EBD /* images */ = {
+			isa = PBXGroup;
+			children = (
+				8D264BA515DAD59E00C04EBD /* Angry.png */,
+				8D264BA615DAD59E00C04EBD /* Angry2.jpg */,
+				8D264BA715DAD59E00C04EBD /* Default.png */,
+				8D264BA815DAD59E00C04EBD /* Icon-72.png */,
+				8D264BA915DAD59E00C04EBD /* Icon-Small-50.png */,
+				8D264BAA15DAD59E00C04EBD /* Icon-Small.png */,
+				8D264BAB15DAD59E00C04EBD /* Icon-Small@2x.png */,
+				8D264BAC15DAD59E00C04EBD /* Icon.png */,
+				8D264BAD15DAD59E00C04EBD /* Icon@2x.png */,
+				8D264BAE15DAD59E00C04EBD /* iTunesArtwork */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		8D264BAF15DAD59E00C04EBD /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8D264BB015DAD59E00C04EBD /* how-dare-you.aif */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +289,17 @@
 				8D264B7615DAD48500C04EBD /* InfoPlist.strings in Resources */,
 				8D264B7F15DAD48500C04EBD /* MainStoryboard_iPhone.storyboard in Resources */,
 				8D264B8215DAD48500C04EBD /* MainStoryboard_iPad.storyboard in Resources */,
+				8D264BB115DAD59E00C04EBD /* Angry.png in Resources */,
+				8D264BB215DAD59E00C04EBD /* Angry2.jpg in Resources */,
+				8D264BB315DAD59E00C04EBD /* Default.png in Resources */,
+				8D264BB415DAD59E00C04EBD /* Icon-72.png in Resources */,
+				8D264BB515DAD59E00C04EBD /* Icon-Small-50.png in Resources */,
+				8D264BB615DAD59E00C04EBD /* Icon-Small.png in Resources */,
+				8D264BB715DAD59E00C04EBD /* Icon-Small@2x.png in Resources */,
+				8D264BB815DAD59E00C04EBD /* Icon.png in Resources */,
+				8D264BB915DAD59E00C04EBD /* Icon@2x.png in Resources */,
+				8D264BBA15DAD59E00C04EBD /* iTunesArtwork in Resources */,
+				8D264BBB15DAD59E00C04EBD /* how-dare-you.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +520,7 @@
 				8D264B9F15DAD48500C04EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D264BA015DAD48500C04EBD /* Build configuration list for PBXNativeTarget "How Dare YouTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +529,7 @@
 				8D264BA215DAD48500C04EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

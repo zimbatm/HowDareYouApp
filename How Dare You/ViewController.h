@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#include <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController : UIViewController
+
+- (void) playSound;
+- (IBAction) playSystemSound: (id) sender;
+- (IBAction) showPopup;
 
 @end
