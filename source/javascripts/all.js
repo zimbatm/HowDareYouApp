@@ -1,62 +1,58 @@
-//= require 'vendor/soundmanager2'
 //= require 'vendor/jquery-1.8.1'
 
 // Prevent iOS scrolling
 document.ontouchmove = function(e) {e.preventDefault()};
 
-soundManager.setup({
-  url: '/javascripts/vendor/soundmanager2/swf',
-  useFlashBlock: false,
-  onready: function() {
-    soundManager.createSound({
-      id: 'how-dare-you',
-      url: [
-        '/sound/how-dare-you.mp3',
-        '/sound/how-dare-you.mp4'
-      ],
-      autoLoad: true,
-      autoPlay: true,
-      volume: 100
-    });
-  }
-});
-
 jQuery("html").removeClass("no-js");
 
 jQuery(function($) {
   $(document).click(function() {
-    soundManager.play("how-dare-you");
+    var player = document.getElementById("how-dare-you");
+    player.play();
   });
 });
+
+function fill(width, height, containerWidth, containerHeight) {
+  var ratio = width / height;
+  var containerRatio = containerWidth / containerHeight;
+
+  if (containerRatio > ratio) {
+    var width = containerWidth;
+    var height = containerWidth / ratio;
+    var diff = (containerHeight - height) / 2;
+
+    return {
+      width: width,
+      height: height,
+      top: diff,
+      left: 0
+    }
+  } else {
+    var width  = containerHeight * ratio;
+    var height = containerHeight;
+    var diff = (containerWidth - width) / 2;
+
+    return {
+      width: width,
+      height: height,
+      top: 0,
+      left: diff
+    }
+  }
+}
 
 jQuery(function($) {
   var $img = $("#angry-face");
   var $wrapper = $("#angry-wrapper");
-  var ratio = $img.width() / $img.height();
+  var originalWidth = $img.width();
+  var originalHeight = $img.height();
 
   function adjust() {
-    wWidth = $wrapper.width();
-    wHeight = $wrapper.height();
-    wRatio = wWidth / wHeight;
+    var wWidth = $wrapper.width();
+    var wHeight = $wrapper.height();
 
-    if (wRatio > ratio) {
-      var width  = wWidth;
-      var height = wWidth / ratio;
-      var diff = (wHeight - height) / 2;
-
-      $img.width( width );
-      $img.height( height );
-      $img.css({ top: diff, left: 0 });
-    } else {
-      var width  = wHeight * ratio;
-      var height = wHeight;
-      var diff = (wWidth - width) / 2;
-
-      $img.width( width );
-      $img.height( height );
-      $img.css({ top: 0, left: diff });
-    }
-
+    var params = fill(originalWidth, originalHeight, wWidth, wHeight);
+    $img.css(params);
   }
 
   adjust();
