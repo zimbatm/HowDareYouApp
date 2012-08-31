@@ -3,8 +3,10 @@
 // Prevent iOS scrolling
 document.ontouchmove = function(e) {e.preventDefault()};
 
+// Tell the CSS that JS is available
 jQuery("html").removeClass("no-js");
 
+// Sound setup
 jQuery(function($) {
   $(document).click(function() {
     var player = document.getElementById("how-dare-you");
@@ -12,6 +14,7 @@ jQuery(function($) {
   });
 });
 
+// Resize algorithm
 function fill(width, height, containerWidth, containerHeight) {
   var ratio = width / height;
   var containerRatio = containerWidth / containerHeight;
@@ -41,6 +44,7 @@ function fill(width, height, containerWidth, containerHeight) {
   }
 }
 
+// Image setup
 jQuery(function($) {
   var $img = $("#angry-face");
   var $wrapper = $("#angry-wrapper");
