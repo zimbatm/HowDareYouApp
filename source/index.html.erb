@@ -1,0 +1,22 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- iOS app -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+    <title>How dare you !</title>
+
+    <%= stylesheet_link_tag "normalize", "all" %>
+    <%= javascript_include_tag  "all" %>
+  </head>
+
+  <body class="<%= page_classes %>">
+    <div id="angry-wrapper">
+      <%= image_tag "Angry.png", :alt => "Photo of angry face", :id => "angry-face" %>
+    </div>
+  </body>
+</html>
