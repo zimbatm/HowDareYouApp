@@ -39,6 +39,7 @@ use Rack::TryStatic, :root => build_dir, :urls => %w[/], :try => ['index.html', 
 
 # If nothing else works, show a 404 page
 page_not_found = Rack::NotFound.new(
-  File.join(build_dir, '404.html')
+  # FIXME: use a 404.html page
+  File.join(build_dir, 'index.html')
 )
 run page_not_found
