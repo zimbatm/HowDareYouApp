@@ -24,6 +24,12 @@ soundManager.setup({
 jQuery("html").removeClass("no-js");
 
 jQuery(function($) {
+  $(document).click(function() {
+    soundManager.play("how-dare-you");
+  });
+});
+
+jQuery(function($) {
   var $img = $("#angry-face");
   var $wrapper = $("#angry-wrapper");
   var ratio = $img.width() / $img.height();
