@@ -8,11 +8,36 @@ jQuery("html").removeClass("no-js");
 
 // Sound setup
 jQuery(function($) {
-  $(document).click(function() {
-    var player = document.getElementById("how-dare-you");
-    player.play();
+  var sound = $("#how-dare-you")
+
+  // Remove autoplay if you have JavaScript
+  sound.attr("autoplay", null)
+
+  sound.on('loadeddata', function() {
+    loaded(this, null);
+  });
+
+  $(document).on('click', function() {
+    sound[0].play();
   });
 });
+
+function loaded(sound, image) {
+  console.log('loaded', arguments);
+  if (sound) {
+    loaded.sound = sound;
+  }
+  if (image) {
+    loaded.image = image;
+  }
+
+  if (loaded.sound && loaded.image) {
+    loaded.sound.play();
+    window.setTimeout(function() {
+      loaded.image.css({ opacity: 1 });
+    }, 1300);
+  }
+}
 
 // Resize algorithm
 function fill(width, height, containerWidth, containerHeight) {
@@ -61,5 +86,13 @@ jQuery(function($) {
 
   adjust();
   $(window).resize(adjust);
+
+  $img.css({
+    opacity: 0,
+  });
+
+  $img.on('load', function() {
+    loaded(null, $img);
+  });
 
 });
