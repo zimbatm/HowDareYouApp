@@ -75,7 +75,7 @@ configure :build do
   # activate :smusher
 
   # Compress files
-  activate :gzip
+  #activate :gzip
   
   # Or use a different image path
   # set :http_path, "/Content/images/"
