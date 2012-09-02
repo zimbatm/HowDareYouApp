@@ -6,6 +6,7 @@ top_dir = File.expand_path('..', __FILE__)
 
 require 'rack/contrib/try_static'
 require 'rack/contrib/not_found'
+require 'rack/contrib/static_cache'
 require 'rack/cache'
 
 # Middleman's config.rb has the same heuristic
@@ -13,6 +14,12 @@ build_dir = 'build'
 
 # Don't send a body for HEAD requests
 use Rack::Head
+
+# Make sure we use the right host
+if ENV['CANONICAL_HOST']
+  require 'rack-canonical-host'
+  use Rack::CanonicalHost, ENV['CANONICAL_HOST']
+end
 
 # Optional. Serve the website from RAM directly :)
 use Rack::Cache,
@@ -25,14 +32,9 @@ use Rack::Cache,
 # TODO: use the existing .gz extension if it exists
 use Rack::Deflater
 
-# Make sure we use the right host
-if ENV['CANONICAL_HOST']
-  require 'rack-canonical-host'
-  use Rack::CanonicalHost, ENV['CANONICAL_HOST']
-end
-
-# Add expiration headers for some assets
-#use Expirator, ['image/*']
+# Serve assets with long expirations.
+# versioning is handled by middleman
+use Rack::StaticCache, :root => build_dir, :urls => ["/images", "/stylesheets", "/javascripts"], :versioning => false
 
 # First try to serve the static file
 use Rack::TryStatic, :root => build_dir, :urls => %w[/], :try => ['index.html', '/index.html']
