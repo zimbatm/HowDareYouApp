@@ -22,11 +22,18 @@ if ENV['CANONICAL_HOST']
 end
 
 # Optional. Serve the website from RAM directly :)
-use Rack::Cache,
+use(Rack::Cache,
   :metastore    => 'heap:/',
   :entitystore  => 'heap:/',
   :default_ttl  => 3600,
-  :allow_reload => false
+  :allow_reload => false,
+  :allow_revalidate => false,
+  :cache_key => proc do |request|
+    # Don't differentiate on hosts or query-string changes. Just the path.
+    request.path_info.gsub('/', '-')
+  end
+)
+
 
 # Compress pages on the fly if supported
 # TODO: use the existing .gz extension if it exists
