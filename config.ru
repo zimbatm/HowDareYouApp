@@ -42,4 +42,9 @@ page_not_found = Rack::NotFound.new(
   # FIXME: use a 404.html page
   File.join(build_dir, 'index.html')
 )
-run page_not_found
+page_not_found_with_revalidate = proc do |env|
+  ret = page_not_found.call(env)
+  ret[1]['Cache-Control'] = 'must-revalidate'
+  ret
+end
+run page_not_found_with_revalidate
