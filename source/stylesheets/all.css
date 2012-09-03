@@ -11,6 +11,7 @@
 body {
     font-size: 1em;
     line-height: 1.4;
+    margin: 0;
 }
 
 fieldset {
