@@ -1,4 +1,4 @@
-//= require vendor/jquery-1.8.1
+//= require vendor/zepto
 (function(window, document, $) {
   // Tell the CSS that JS is available
   $("html").removeClass("no-js");
@@ -37,7 +37,7 @@
   appCache.addEventListener('updateready', handleCacheEvent, false);
 
   // Sound setup
-  $(document).on('ready', function() {
+  $(function() {
     var sound = $("#how-dare-you")
 
     // Remove autoplay if you have JavaScript
@@ -98,8 +98,8 @@
     }
   }
 
-  // Image setu
-  $(document).on('ready', function() {
+  // Image setup
+  $(function() {
     var $img = $("#angry-face");
     var $wrapper = $("#angry-wrapper");
     var originalWidth = $img.width();
@@ -136,4 +136,4 @@
   //   in Sizzle
   //Object.freeze && Object.freeze(this);
 
-})(window, document, jQuery);
+})(window, document, Zepto);
