@@ -62,6 +62,12 @@ html, body {
   width: 100%;
 }
 
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
 
 /* ==========================================================================
    Helper classes

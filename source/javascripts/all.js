@@ -1,13 +1,16 @@
 //= require vendor/zepto
+//= require vendor/spin
 (function(window, document, $) {
   // Tell the CSS that JS is available
   $("html").removeClass("no-js");
+
 
   // Prevent iOS scrolling
   document.ontouchmove = function(e) {e.preventDefault()};
 
   // Application cache setup
   var appCache = window.applicationCache;
+  var spinner = new Spinner();
 
   function handleCacheEvent(e) {
     console.log(arguments);
@@ -61,6 +64,7 @@
     }
 
     if (loaded.sound && loaded.image) {
+      spinner.stop();
       loaded.sound.play();
       window.setTimeout(function() {
         loaded.image.css({ opacity: 1 });
@@ -104,6 +108,9 @@
     var $wrapper = $("#angry-wrapper");
     var originalWidth = $img.width();
     var originalHeight = $img.height();
+
+    spinner.spin();
+    $wrapper.append(spinner.el);
 
     function adjust() {
       var wWidth = $wrapper.width();
