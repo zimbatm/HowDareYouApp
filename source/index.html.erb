@@ -17,6 +17,13 @@
   <body class="<%= page_classes %>">
     <div id="angry-wrapper">
       <%= image_tag "Angry.png", :alt => "Photo of angry face", :id => "angry-face" %>
+
+      <button id="info-button" class="info">i</button>
+      <div id="info-popup" class="hidden">
+        <p>HowDareYou is a simple app that demonstrates the capabilities of the <a href="http://www.middlemanapp.com">middleman framework</a>. It was also a good opportunity for me to play with some HTML5 code.</p>
+
+        <p>The code is available on my <a href="http://github.com/zimbatm/howdareyouapp">zimbatm github account</a>.</p>
+      </div>
     </div>
 
     <audio id="how-dare-you" preload autoplay>

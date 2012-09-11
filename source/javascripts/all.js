@@ -1,6 +1,10 @@
 //= require vendor/zepto
 //= require vendor/spin
 (function(window, document, $) {
+  // Prevent new vars in the Object's prototype
+  // We can now skip hasOwnPrototype in most of the cases.
+  if (Object.freeze) { Object.freeze(Object.prototype); }
+
   // Tell the CSS that JS is available
   $("html").removeClass("no-js");
 
@@ -111,14 +115,24 @@
 
   });
 
-  // Prevent new vars in the Object's prototype
-  // We can now skip hasOwnPrototype in most of the cases.
-  if (Object.freeze) { Object.freeze(Object.prototype); }
 
-  // Prevent new globals defintion
-  // FIXME: Fails with
-  //   Uncaught TypeError: Cannot set property 'toJSON' of undefined
-  //   in Sizzle
-  //Object.freeze && Object.freeze(this);
+  // Info setup
+  $(function() {
+    var $button = $("#info-button");
+
+    $button.on('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $("#info-popup").removeClass("hidden");
+
+      $(document).one('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $("#info-popup").addClass("hidden");
+      });
+    });
+
+
+  });
 
 })(window, document, Zepto);
