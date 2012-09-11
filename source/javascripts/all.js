@@ -11,7 +11,7 @@
   // Prevent iOS scrolling
   document.ontouchmove = function(e) {e.preventDefault()};
 
-  var spinner = new Spinner({zIndex: 2});
+  var spinner = new Spinner({zIndex: 950});
 
   // Resize algorithm
   function fill(width, height, containerWidth, containerHeight) {
@@ -110,26 +110,24 @@
 
   // Info setup
   $(function() {
-    var $button = $("#info-button"),
+    var $parent = $("body"),
+      $button = $("#info-button"),
       $pane = $("#info-pane");
 
     function abort(e) {
       e.stopPropagation();
     }
 
-    function hidePane(e) {
-      abort(e);
-      $pane.addClass("visuallyhidden");
-    }
-
     $pane.on('click', abort);
 
-    $("#info-pane button.close").on('click', hidePane);
+    $("#info-pane button.close").on('click', function(e) {
+      abort(e);
+      $parent.removeClass("flip");
+    });
+
     $button.on('click', function(e) {
       abort(e);
-      $pane.toggleClass("visuallyhidden");
-
-      $(document).one('click', hidePane);
+      $parent.addClass("flip");
     });
 
   });

@@ -12,6 +12,9 @@ body {
     font-size: 1em;
     line-height: 1.4;
     margin: 0;
+
+    /* Avoid box expansion by padding */
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
 fieldset {
@@ -22,13 +25,6 @@ fieldset {
 
 textarea {
     resize: vertical;
-}
-
-.chromeframe {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
 }
 
 /* ===== Initializr Styles ==================================================
@@ -50,11 +46,12 @@ body {
   width: 100%;
   height: 100%;
   background: white;
+  border: 1px solid #333 inset;
+  border-radius: 1em;
 }
 
 #angry-pane {
   overflow: hidden;
-  z-order: 1;
 }
 
 #angry-face {
@@ -84,16 +81,65 @@ button.info {
   bottom: 1em;
 }
 
-* { box-sizing: border-box; }
-
 #info-pane {
   padding: 0 1em;
-  width: 90%;
-  height: 90%;
-  top: 5%;
-  left: 5%;
-  z-index: 3;
-  border-radius: 0.5em;
+  background: #ced;
+}
+
+/* ==========================================================================
+   CSS transforms
+   ========================================================================== */
+
+#angry-pane {
+  z-index: 900;
+
+  -webkit-transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+  -moz-transform: rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+body.flip #angry-pane {
+  z-index: 900;
+
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+
+#info-pane {
+  z-index: 800;
+
+  -webkit-transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+  -moz-transform: rotateY(-180deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+body.flip #info-pane {
+  z-index: 1000;
+
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
 }
 
 /* ==========================================================================
