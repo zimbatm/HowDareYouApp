@@ -11,7 +11,7 @@
   // Prevent iOS scrolling
   document.ontouchmove = function(e) {e.preventDefault()};
 
-  var spinner = new Spinner();
+  var spinner = new Spinner({zIndex: 2});
 
   function handleCacheEvent(e) {
     console.log(arguments);
@@ -87,18 +87,18 @@
   // Image setup
   $(function() {
     var $img = $("#angry-face");
-    var $wrapper = $("#angry-wrapper");
+    var $pane = $("#angry-pane");
     var originalWidth = $img.width();
     var originalHeight = $img.height();
 
     spinner.spin();
-    $wrapper.append(spinner.el);
+    $pane.append(spinner.el);
 
     function adjust() {
-      var wWidth = $wrapper.width();
-      var wHeight = $wrapper.height();
+      var paneWidth = $pane.width();
+      var paneHeight = $pane.height();
 
-      var params = fill(originalWidth, originalHeight, wWidth, wHeight);
+      var params = fill(originalWidth, originalHeight, paneWidth, paneHeight);
       $img.css(params);
     }
 
@@ -118,17 +118,18 @@
 
   // Info setup
   $(function() {
-    var $button = $("#info-button");
+    var $button = $("#info-button"),
+      $pane = $("#info-pane");
 
     $button.on('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      $("#info-popup").removeClass("hidden");
+      $pane.removeClass("hidden");
 
       $(document).one('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        $("#info-popup").addClass("hidden");
+        $pane.addClass("hidden");
       });
     });
 
