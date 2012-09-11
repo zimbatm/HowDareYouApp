@@ -13,39 +13,6 @@
 
   var spinner = new Spinner({zIndex: 2});
 
-  // Sound setup
-  $(function() {
-    var sound = $("#how-dare-you")
-
-    // Remove autoplay if you have JavaScript
-    sound.attr("autoplay", null)
-
-    sound.on('loadeddata', function() {
-      loaded(this, null);
-    });
-
-    $(document).on('click', function() {
-      sound[0].play();
-    });
-  });
-
-  function loaded(sound, image) {
-    if (sound) {
-      loaded.sound = sound;
-    }
-    if (image) {
-      loaded.image = image;
-    }
-
-    if (loaded.sound && loaded.image) {
-      spinner.stop();
-      loaded.sound.play();
-      window.setTimeout(function() {
-        loaded.image.css({ opacity: 1 });
-      }, 1300);
-    }
-  }
-
   // Resize algorithm
   function fill(width, height, containerWidth, containerHeight) {
     var ratio = width / height;
@@ -73,6 +40,23 @@
         top: 0,
         left: diff
       }
+    }
+  }
+
+  function loaded(sound, image) {
+    if (sound) {
+      loaded.sound = sound;
+    }
+    if (image) {
+      loaded.image = image;
+    }
+
+    if (loaded.sound && loaded.image) {
+      spinner.stop();
+      loaded.sound.play();
+      window.setTimeout(function() {
+        loaded.image.css({ opacity: 1 });
+      }, 1300);
     }
   }
 
@@ -107,6 +91,22 @@
 
   });
 
+
+  // Sound setup
+  $(function() {
+    var $sound = $("#how-dare-you")
+
+    // Remove autoplay if you have JavaScript
+    $sound.attr("autoplay", null)
+
+    $sound.on('loadeddata', function() {
+      loaded(this, null);
+    });
+
+    $(document).on('click', function() {
+      $sound[0].play();
+    });
+  });
 
   // Info setup
   $(function() {
