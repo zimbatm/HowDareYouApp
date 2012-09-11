@@ -54,9 +54,6 @@
     if (loaded.sound && loaded.image) {
       spinner.stop();
       loaded.sound.play();
-      window.setTimeout(function() {
-        loaded.image.css({ opacity: 1 });
-      }, 1300);
     }
   }
 
@@ -94,10 +91,28 @@
 
   // Sound setup
   $(function() {
-    var $sound = $("#how-dare-you")
+    var $sound = $("#how-dare-you"),
+      $img = $("#angry-face"),
+      imageShown = false;
 
     // Remove autoplay if you have JavaScript
     $sound.attr("autoplay", null)
+
+    $sound.on('timeupdate', function(e) {
+      if (!imageShown && this.currentTime > 1) {
+        imageShown = true;
+        $img.css({
+          opacity: 1,
+        });
+      }
+    });
+
+    $sound.on('play', function() {
+      imageShown = false;
+      $img.css({
+        opacity: 0,
+      });
+    });
 
     $sound.on('loadeddata', function() {
       loaded(this, null);
