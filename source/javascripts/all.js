@@ -13,14 +13,6 @@
 
   var spinner = new Spinner({zIndex: 2});
 
-  function handleCacheEvent(e) {
-    console.log(arguments);
-  }
-
-  function handleCacheError(e) {
-    console.log('error', arguments);
-  };
-
   // Sound setup
   $(function() {
     var sound = $("#how-dare-you")
@@ -121,18 +113,24 @@
     var $button = $("#info-button"),
       $pane = $("#info-pane");
 
-    $button.on('click', function(e) {
-      e.preventDefault();
+    function abort(e) {
       e.stopPropagation();
-      $pane.removeClass("hidden");
+    }
 
-      $(document).one('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        $pane.addClass("hidden");
-      });
+    function hidePane(e) {
+      abort(e);
+      $pane.addClass("visuallyhidden");
+    }
+
+    $pane.on('click', abort);
+
+    $("#info-pane button.close").on('click', hidePane);
+    $button.on('click', function(e) {
+      abort(e);
+      $pane.toggleClass("visuallyhidden");
+
+      $(document).one('click', hidePane);
     });
-
 
   });
 
