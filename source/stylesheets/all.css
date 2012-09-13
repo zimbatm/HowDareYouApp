@@ -43,6 +43,13 @@ body {
    Author's custom styles
    ========================================================================== */
 
+/* apply a natural box layout model to all elements. Thanks Paul Irish ! */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .pane {
   position: absolute;
   top: 0;
@@ -84,8 +91,6 @@ button.info {
   bottom: 1em;
 }
 
-* { box-sizing: border-box; }
-
 #info-pane {
   padding: 0 1em;
   width: 90%;
@@ -94,6 +99,7 @@ button.info {
   left: 5%;
   z-index: 3;
   border-radius: 0.5em;
+  overflow: auto;
 }
 
 /* ==========================================================================
