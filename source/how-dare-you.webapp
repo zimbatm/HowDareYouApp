@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "name": "How dare you",
+  "name": "HowDareYou",
   "description": "How dare you ! - the APP. Fun app and HTML5 testbed",
   "icons": {
     "16": "/images/icon-16.png",
@@ -13,6 +13,6 @@
   },
   "installs_allowed_from": ["*"],
   "appcache_path": "/how-dare-you.appcache",
-  "orientation": "portrait,landscape-secondary",
+  "orientation": "portrait",
   "fullscreen": "true"
 }
