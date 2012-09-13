@@ -9,6 +9,8 @@ require 'rack/contrib/not_found'
 require 'rack/contrib/static_cache'
 require 'rack/cache'
 
+Rack::Mime::MIME_TYPES['.webapp'] = 'application/x-web-app-manifest+json'
+
 # Middleman's config.rb has the same heuristic
 build_dir = 'build'
 

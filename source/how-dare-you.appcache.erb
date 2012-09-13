@@ -1,0 +1,19 @@
+---
+layout: false
+---
+CACHE MANIFEST
+# <%= Time.now.to_i %> - force reload on deploy
+
+# Explicitly cached 'master entries'.
+CACHE:
+/
+<%= asset_path :js, 'all.js' %>
+
+<%= asset_path :css, 'all.css' %>
+
+<%= asset_path :images, 'Angry.png' %>
+
+/sound/how-dare-you.wav
+
+NETWORK:
+/sound
