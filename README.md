@@ -19,5 +19,13 @@ Installation
 TODO
 ----
 
-* Manifest file
-* Application icon
+* Application icon (requirement for the FF market place. See
+https://developer.mozilla.org/en-US/docs/Apps/Manifest?redirectlocale=en-US&redirectslug=Apps%2FThe_Manifest
+)
+
+
+NOTES
+-----
+
+iOS doesn't support caching sound files. See
+http://stackoverflow.com/questions/9268023/can-you-cache-sound-files-in-an-ios-web-app-using-a-manifest-or-web-storage

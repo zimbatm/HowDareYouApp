@@ -1,5 +1,6 @@
 //= require vendor/zepto
 //= require vendor/spin
+//= require vendor/include
 (function(window, document, $) {
   // Prevent new vars in the Object's prototype
   // We can now skip hasOwnPrototype in most of the cases.
@@ -148,6 +149,27 @@
 
       $(document).one(clickType, hidePane);
     });
+
+    // supports install ?
+    var mozApps = window.navigator.mozApps;
+    if (mozApps) {
+      var button = $("<button>Install</button>")
+      $("#info-pane").append(button);
+
+      button.one(clickType, function() {
+        // Work around bug with relative urls
+        webapp_url = window.location.protocol + '//' + window.location.hostname + '/how-dare-you.webapp'
+        var pending = window.navigator.mozApps.install('/how-dare-you.webapp');
+        button.text('installing...');
+        pending.onsuccess = function () {
+          button.text('installed');
+        };
+        pending.onerror = function () {
+          button.text(this.error);
+        }
+      });
+    }
+
 
   });
 
