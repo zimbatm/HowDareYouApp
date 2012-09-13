@@ -11,6 +11,8 @@
   // Prevent iOS scrolling
   document.ontouchmove = function(e) {e.preventDefault()};
 
+  var clickType=((document.ontouchstart!==null)?'click':'touchstart');
+
   var spinner = new Spinner({zIndex: 2});
 
   // Resize algorithm
@@ -118,7 +120,7 @@
       loaded(this, null);
     });
 
-    $(document).on('click', function() {
+    $(document).on(clickType, function() {
       $sound[0].play();
     });
   });
@@ -137,14 +139,14 @@
       $pane.addClass("visuallyhidden");
     }
 
-    $pane.on('click', abort);
+    $pane.on(clickType, abort);
 
-    $("#info-pane button.close").on('click', hidePane);
-    $button.on('click', function(e) {
+    $("#info-pane button.close").on(clickType, hidePane);
+    $button.on(clickType, function(e) {
       abort(e);
       $pane.toggleClass("visuallyhidden");
 
-      $(document).one('click', hidePane);
+      $(document).one(clickType, hidePane);
     });
 
   });
