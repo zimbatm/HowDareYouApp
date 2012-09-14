@@ -50,8 +50,7 @@ use Rack::TryStatic, :root => build_dir, :urls => %w[/], :try => ['index.html', 
 
 # If nothing else works, show a 404 page
 page_not_found = Rack::NotFound.new(
-  # FIXME: use a 404.html page
-  File.join(build_dir, 'index.html')
+  File.join(build_dir, '404.html')
 )
 page_not_found_with_revalidate = proc do |env|
   ret = page_not_found.call(env)
