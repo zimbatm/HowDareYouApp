@@ -1,6 +1,5 @@
 //= require vendor/zepto
 //= require vendor/spin
-//= require vendor/include
 (function(window, document, $) {
   // Prevent new vars in the Object's prototype
   // We can now skip hasOwnPrototype in most of the cases.
