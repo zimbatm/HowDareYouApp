@@ -1,5 +1,25 @@
 {
   "name": "How dare you",
   "version": "0.1",
+  "manifest_version": 2,
   "description": "An app to scold your friends. With a French accent !"
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "64": "images/icon-64.png",
+    "128": "images/icon-128.png"
+  },
+  "default_locale": "en",
+  "urls": [
+    "http://www.howdareyouapp.com/"
+  ],
+  "launch": {
+    "web_url": "http://www.howdareyouapp.com/"
+  },
+  "permissions": [
+    "unlimitedStorage"
+  ],
+
+  "homepage_url": "http://www.howdareyouapp.com/",
 }
