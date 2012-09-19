@@ -81,7 +81,7 @@
     $(window).resize(adjust);
 
     $img.css({
-      opacity: 0,
+      opacity: 0
     });
 
     $img.on('load', function() {
@@ -103,17 +103,13 @@
     $sound.on('timeupdate', function(e) {
       if (!imageShown && this.currentTime > 1) {
         imageShown = true;
-        $img.css({
-          opacity: 1,
-        });
+        $img.css({ opacity: 1 });
       }
     });
 
     $sound.on('play', function() {
       imageShown = false;
-      $img.css({
-        opacity: 0,
-      });
+      $img.css({ opacity: 0 });
     });
 
     $sound.on('loadeddata', function() {
