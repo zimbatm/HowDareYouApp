@@ -27,7 +27,6 @@ end
 use(Rack::Cache,
   :metastore    => 'heap:/',
   :entitystore  => 'heap:/',
-  :default_ttl  => 3600,
   :allow_reload => false,
   :allow_revalidate => false,
   :cache_key => proc do |request|
