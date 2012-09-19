@@ -12,9 +12,10 @@
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/images/icon-64.png">
+    <link rel="icon" type="image/png" href="<%= asset_path :images, 'icon-64.png' %>">
 
-    <#= javascript_include_tag  "https://signup.persona.org/include.js", "all" %>
+    <%# javascript_include_tag "https://signup.persona.org/include.js" %>
+    <%= javascript_include_tag "all" %>
     <%= stylesheet_link_tag "all" %>
   </head>
 
@@ -29,7 +30,7 @@
     <div id="info-pane" class="pane visuallyhidden">
       <p>An app to scold your friends. With a French accent !</p>
 
-      <p>Version 1.1</p>
+      <p>Version <%= my_version %></p>
 
       <button class="close">close</button>
     </div>

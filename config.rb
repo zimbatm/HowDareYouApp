@@ -47,6 +47,9 @@ activate :automatic_image_sizes
 #   end
 # end
 
+# Version of HowDareYouApp
+set :my_version, '1.1'
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
