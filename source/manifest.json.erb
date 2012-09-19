@@ -2,22 +2,15 @@
   "name": "How dare you",
   "version": "<%= my_version %>",
   "manifest_version": 2,
-  "description": "An app to scold your friends. With a French accent !"
+  "description": "An app to scold your friends. With a French accent !",
   "icons": {
   <% %w[16 32 48 64 128].each do |size| %>
     "<%= size %>": "<%= asset_path :images, "icon-#{size}.png" %>"<%= ',' unless size == '128' %>
   <% end %>
   },
-  "default_locale": "en",
-  "urls": [
-    "http://www.howdareyouapp.com/"
-  ],
-  "launch": {
-    "web_url": "http://www.howdareyouapp.com/"
+  "app": {
+    "urls": [ "http://www.howdareyouapp.com/" ],
+    "launch": { "web_url": "http://www.howdareyouapp.com/" }
   },
-  "permissions": [
-    "unlimitedStorage"
-  ],
-
-  "homepage_url": "http://www.howdareyouapp.com/",
+  "permissions": [ "unlimitedStorage" ]
 }
