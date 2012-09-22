@@ -102,6 +102,16 @@ button.info {
   overflow: auto;
 }
 
+#javascript-error {
+  display: none;
+  z-index: 9999;
+  padding: 1em;
+}
+
+.no-js #javascript-error {
+  display: block;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

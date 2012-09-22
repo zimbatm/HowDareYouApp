@@ -1,3 +1,4 @@
+//= require vendor/modernizr.custom.08547
 //= require vendor/zepto
 //= require vendor/spin
 (function(window, document, $) {
@@ -5,15 +6,49 @@
   // We can now skip hasOwnPrototype in most of the cases.
   if (Object.freeze) { Object.freeze(Object.prototype); }
 
-  // Tell the CSS that JS is available
-  $("html").removeClass("no-js");
+  function log() {
+    if (window.console && window.console.log) {
+      return window.console.log.apply(window.console, arguments);
+    }
+  }
+
+  function errorHandler(msg) {
+    return function() {
+      log(msg, arguments);
+      $("#javascript-error").text(msg + ': ' + String(Array.prototype.slice.apply(arguments).join(', ')));
+      $("html").addClass("no-js");
+    }
+  }
+  window.onerror = errorHandler('JavaScript error');
+
+  if (!Modernizr.audio) {
+    $(errorHandler('HTML5 Audio not supported'));
+    return;
+  }
+
+  log(window.navigator.userAgent);
+
+  var clickType=((Modernizr.touch)?'touchstart':'click');
+  if (window.navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:18.0) Gecko/18.0 Firefox/18.0") {
+    clickType = 'click';
+  }
+  log('click type', clickType);
 
   // Prevent iOS scrolling
   document.ontouchmove = function(e) {e.preventDefault()};
 
-  var clickType=((document.ontouchstart!==null)?'click':'touchstart');
-
-  var spinner = new Spinner({zIndex: 2});
+  var spinner = new Spinner({
+    zIndex: 2,
+    lines: 11,
+    length: 25,
+    width: 10,
+    radius: 30,
+    corners: 1.0,
+    rotate: 0,
+    trail: 44,
+    speed: 1.0,
+    shadow: 'on'
+  });
 
   // Resize algorithm
   function fill(width, height, containerWidth, containerHeight) {
@@ -61,10 +96,10 @@
 
   // Image setup
   $(function() {
-    var $img = $("#angry-face");
+    var $image = $("#angry-face");
     var $pane = $("#angry-pane");
-    var originalWidth = $img.width();
-    var originalHeight = $img.height();
+    var originalWidth = $image.width();
+    var originalHeight = $image.height();
 
     spinner.spin();
     $pane.append(spinner.el);
@@ -74,27 +109,28 @@
       var paneHeight = $pane.height();
 
       var params = fill(originalWidth, originalHeight, paneWidth, paneHeight);
-      $img.css(params);
+      $image.css(params);
     }
 
     adjust();
     $(window).resize(adjust);
 
-    $img.css({
+    $image.css({
       opacity: 0
     });
 
-    $img.on('load', function() {
-      loaded(null, $img);
+    $image.on('load', function() {
+      loaded(null, $image);
     });
 
+    $image.on('error', errorHandler('image load error'));
   });
 
 
   // Sound setup
   $(function() {
     var $sound = $("#how-dare-you"),
-      $img = $("#angry-face"),
+      $image = $("#angry-face"),
       imageShown = false;
 
     // Remove autoplay if you have JavaScript
@@ -103,20 +139,23 @@
     $sound.on('timeupdate', function(e) {
       if (!imageShown && this.currentTime > 1) {
         imageShown = true;
-        $img.css({ opacity: 1 });
+        $image.css({ opacity: 1 });
       }
     });
 
     $sound.on('play', function() {
       imageShown = false;
-      $img.css({ opacity: 0 });
+      $image.css({ opacity: 0 });
     });
 
     $sound.on('loadeddata', function() {
       loaded(this, null);
-    });
+    })
+
+    $sound.on('error', errorHandler('audio loading error'));
 
     $(document).on(clickType, function() {
+      log('playing');
       $sound[0].play();
     });
   });
@@ -151,18 +190,23 @@
       var button = $("<button>Install</button>")
       $("#info-pane").append(button);
 
-      button.one(clickType, function() {
-        // Work around bug with relative urls
-        webapp_url = window.location.protocol + '//' + window.location.hostname + '/how-dare-you.webapp'
-        var pending = window.navigator.mozApps.install('/how-dare-you.webapp');
-        button.text('installing...');
-        pending.onsuccess = function () {
-          button.text('installed');
-        };
-        pending.onerror = function () {
-          button.text(this.error);
-        }
-      });
+      var request = mozApps.getSelf();
+      request.onsuccess = function() {
+        log('result', typeof request.result);
+        button.one(clickType, function() {
+          // Work around bug with relative urls
+          webapp_url = String(window.location) + 'how-dare-you.webapp'
+          log('webapp url', webapp_url);
+          var pending = window.navigator.mozApps.install(webapp_url);
+          button.text('installing...');
+          pending.onsuccess = function () {
+            button.text('installed');
+          };
+          pending.onerror = errorHandler('Installation error');
+        });
+      }
+
+      request.onerror = errorHandler('MozApp error')
     }
 
 
