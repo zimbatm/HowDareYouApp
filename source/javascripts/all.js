@@ -187,28 +187,42 @@
     // supports install ?
     var mozApps = window.navigator.mozApps;
     if (mozApps) {
-      var button = $("<button>Install</button>")
-      $("#info-pane").append(button);
-
       var request = mozApps.getSelf();
       request.onsuccess = function() {
-        log('result', typeof request.result);
-        button.one(clickType, function() {
-          // Work around bug with relative urls
-          webapp_url = String(window.location) + 'how-dare-you.webapp'
-          log('webapp url', webapp_url);
-          var pending = window.navigator.mozApps.install(webapp_url);
-          button.text('installing...');
-          pending.onsuccess = function () {
-            button.text('installed');
-          };
-          pending.onerror = errorHandler('Installation error');
-        });
+        var app = request.result,
+          $button = $("<button></button>")
+
+        $("#info-pane").append($button);
+        if (!app) {
+          $button.text('install');
+          $button.one(clickType, function() {
+
+            // Work around bug with relative urls
+            webapp_url = String(window.location) + 'how-dare-you.webapp'
+            var pending = mozApps.install(webapp_url);
+            $button.text('installing...');
+            pending.onsuccess = function () {
+              $button.text('installed');
+            };
+            pending.onerror = errorHandler('Installation error');
+          });
+        } else if (app.status == 'installed') {
+          $button.text('uninstall');
+          $button.one(clickType, function() {
+            var ret = app.uninstall();
+            var uninstall = log('uninstall return', ret);
+            uninstall.onsuccess = function() {
+              $button.text('uninstalled');
+            }
+            uninstall.onerror = errorHandler('uninstall error');
+          });
+        } else {
+          log('app status', app.status);
+        }
       }
 
       request.onerror = errorHandler('MozApp error')
     }
-
 
   });
 
