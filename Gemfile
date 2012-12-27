@@ -12,7 +12,5 @@ gem "rack-canonical-host"
 gem "rack-cache"
 
 group :development do
-  gem "heroku"
   gem "rawler"
-  gem "foreman"
 end
