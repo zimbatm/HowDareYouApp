@@ -14,7 +14,7 @@ activate :s3_sync do |s3_sync|
   s3_sync.delete                     = false
   # We chain after the build step by default. This may not be your desired behavior...
   s3_sync.after_build                = false
-  s3_sync.prefer_gzip                = true
+  s3_sync.prefer_gzip                = false
   s3_sync.reduced_redundancy_storage = false
 end
 
@@ -49,7 +49,7 @@ configure :build do
   # activate :smusher
 
   # Compress files
-  activate :gzip
+  #activate :gzip
 
   # Or use a different image path
   # set :http_path, "/Content/images/"
