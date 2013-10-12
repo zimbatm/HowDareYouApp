@@ -6,7 +6,7 @@
 activate :automatic_image_sizes
 
 activate :s3_sync do |s3_sync|
-  s3_sync.bucket                     = 'howdareyouapp'
+  s3_sync.bucket                     = 'howdareyouapp.com'
   s3_sync.region                     = 'us-east-1'
   s3_sync.aws_access_key_id          = ENV['AWS_ACCESS_KEY_ID']
   s3_sync.aws_secret_access_key      = ENV['AWS_SECRET_ACCESS_KEY']
